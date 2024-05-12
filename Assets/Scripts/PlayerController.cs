@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
 
     float inputX;
     float inputY;
+
+    Rigidbody2D rigidbody2D;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -20,11 +22,16 @@ public class PlayerController : MonoBehaviour
     {
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
-        Vector2 position = transform.position;
+        
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 position = rigidbody2D.position;
 
         position.x = position.x + inputX * speed * Time.deltaTime;
         position.y = position.y + inputY * speed * Time.deltaTime;
 
-        transform.position = position;
+        rigidbody2D.position = position;
     }
 }
