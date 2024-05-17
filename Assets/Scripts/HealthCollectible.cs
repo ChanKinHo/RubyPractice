@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthCollectible : MonoBehaviour
 {
+    public AudioClip healthClip;
+    public ParticleSystem eatEffect;
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
@@ -12,6 +14,10 @@ public class HealthCollectible : MonoBehaviour
             if (player.Health < player.maxHealth) 
             {
                 player.ChangeHealth(1);
+                Instantiate(eatEffect,transform.position,Quaternion.identity);
+
+                player.PlaySound(healthClip);
+
                 Destroy(gameObject);
             }
             
