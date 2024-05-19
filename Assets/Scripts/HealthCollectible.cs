@@ -16,9 +16,12 @@ public class HealthCollectible : MonoBehaviour
                 player.ChangeHealth(1);
                 Instantiate(eatEffect,transform.position,Quaternion.identity);
 
-                player.PlaySound(healthClip);
+                
 
                 Destroy(gameObject);
+
+                Debug.Log("aufio !!!!!! " + healthClip);
+                player.PlaySound(healthClip);
             }
             
         }

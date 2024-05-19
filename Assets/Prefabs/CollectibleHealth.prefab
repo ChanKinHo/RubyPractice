@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac4cdf734f69f2459ba3912e5d2e79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthClip: {fileID: 8300000, guid: af5f8b64e3f58f24c87ff8f789b04f6c, type: 3}
   eatEffect: {fileID: 6240342226776343797, guid: 6ea74a5335d34634f8e0aef9d6fd57dc, type: 3}
 --- !u!95 &4210378518330436684
 Animator:

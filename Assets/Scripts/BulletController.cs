@@ -9,6 +9,10 @@ public class BulletController : MonoBehaviour
 
     Rigidbody2D rb;
 
+    float destroyTime = 3f;
+
+    bool isDestroy = false;
+
 
     void Awake()
     {
@@ -18,12 +22,22 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDestroy)
+        {
+            destroyTime -= Time.deltaTime;
+            if (destroyTime < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
         
     }
 
     public void launch(Vector2 direction, float force)
     {
+        isDestroy = true;
         rb.AddForce(direction*force);
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)

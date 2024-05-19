@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     AudioSource myAudioSource;
 
+    public AudioClip attackClip;
+    public AudioClip hitSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -130,6 +133,7 @@ public class PlayerController : MonoBehaviour
             invincibleTimer = timeInvincible;
             isInvincible = true;
             animator.SetTrigger("hit");
+            myAudioSource.PlayOneShot(hitSound);
         }
         currentHealth = Mathf.Clamp(currentHealth+amount,0,maxHealth);
         
@@ -144,6 +148,7 @@ public class PlayerController : MonoBehaviour
         bulletController.launch(lookDirection, 300);
 
         animator.SetTrigger("launch");
+        myAudioSource.PlayOneShot(attackClip);
 
     }
 
